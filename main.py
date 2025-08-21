@@ -26,7 +26,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://xlearn.tw", "http://localhost:*"],  # 明確指定允許的網域
-    allow_credentials=False,
+    allow_credentials=True,
     allow_methods=["POST", "OPTIONS"],
     allow_headers=["*"],
 )
@@ -464,6 +464,4 @@ async def generate_ads_report(request: AdsReportRequest):
             )
 
 # Zeabur 會自動尋找 app 變數
-
 # 本機測試：uvicorn main:app --reload --host 0.0.0.0 --port 8000
-
